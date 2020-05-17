@@ -1663,7 +1663,7 @@ Upstream: The upstream used, not empty, or not set this header.
 
 #### Tips  
 1. By default, `--auth-url` is required to provide the user name and password. If you do not need the client to provide the username and password, and authenticate, you can add `--auth-nouser`. The visit will still access the authentication address `--auth-url` for authentication. Only the $user authentication username and the $pass authentication password received in the php interface are empty when client didn't send username and password.  
-2. Connection limit priority: User authentication file rate limit - "File ip.limit rate limit -" API user rate limit - "API IP rate limit -" command line global connection limit.  
+2. Connection limit priority: User authentication file limit - "File ip.limit limit -" API user limit - "API IP limit -" command line global connection limit.  
 3. Rate Limit Priority: User Authentication File Rate Limit - "File ip.limit Rate Limit -" API User Rate Limit - "API IP Rate Limit - "Command Line Global Rate Limit.  
 3. The upstream obtains the priority: the upstream of the user authentication file - the file ip.limit upstream-"API upstream-" command line specifies the upstream.  
 4.`--auth-cache` authentication cache, cache the authentication result for a certain period of time, improve performance, reduce the pressure on the authentication interface, --auth-cache unit seconds, default 0, set 0 to close the cache.  
@@ -1721,11 +1721,6 @@ bytes: the number of traffic bytes used by the user.
 #### Tips
 
 The `--traffic-url` URL must response the HTTP status code` 204`. Only when the traffic is reported will the report be considered successful, and if it response other status codes, it will be considered that the reported traffic failed, and the log will be output.
-
-#### traffic flow
-
-![traffic](https://raw.githubusercontent.com/snail007/goproxy/master/doc/images/traffic.png)
-
 
 ###  Disconnect the user's connection
 
