@@ -1722,6 +1722,11 @@ bytes: the number of traffic bytes used by the user.
 
 The `--traffic-url` URL must response the HTTP status code` 204`. Only when the traffic is reported will the report be considered successful, and if it response other status codes, it will be considered that the reported traffic failed, and the log will be output.
 
+#### traffic flow
+
+![traffic](https://raw.githubusercontent.com/snail007/goproxy/master/doc/images/traffic.png)
+
+
 ###  Disconnect the user's connection
 
 The proxy's http (s) / socks5 / sps proxy function supports a control interface, which can be specified by the parameter --control-url http interface address,
