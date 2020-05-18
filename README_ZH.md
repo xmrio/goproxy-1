@@ -184,14 +184,15 @@ Proxy is licensed under GPLv3 license。
 
 ### 5. 关于proxy-admin控制面板和命令行gorpoxy
 
-1. proxy-admin面板和命令行gorpoxy是两个东西,没有依赖关系,分别独立使用.
-2. proxy-admin有`free免费版`和`vip版`.
-3. goproxy有`free免费版`和`商业版`.
-4. proxy-admin免费版,proxy-adminvip版本,goproxy免费版,三者功能一样,都是免费版功能.  
+软件名称| 　　　免费版功能　　　 | 　　　商业版功能　　　 | 　　　购买使用　　　　　|特点
+:----------- | :---: | :---: | :---: | :---:
+proxy-admin free免费版 |   √ |   x |   x| Web界面操作，免费使用，服务数量有限制，适合个人，小白和白嫖党
+proxy-admin vip版 |   √ |   x |   √| Web界面操作，服务数量无限制，适合个体户或者小集体
+proxy-admin coml商业版 |   √ |   √ |   √|Web界面操作，无限制，适合集体或公司对外提供服务
+gorproxy命令行 free免费版 |   √ |   x |   x|命令行操作，免费使用，稳定且灵活，适合一切熟悉命令行的大佬或集体或公司，自用或者大规模部署对外服务
+gorproxy命令行 commercial商业版|   √ |   √ |   √|命令行操作，稳定且灵活，适合集体或公司大规模部署对外提供服务
+
 关于免费版功能和商业版功能对比请看这里,[`免费版`和`商业版`功能对比](https://snail007.github.io/goproxy/page/free_vs_commercial/).
-5. proxy-admin vip版和proxy-admin free免费版区别是vip版本服务数量无限制.
-6. proxy-admin内置goproxy免费版SDK,独立运行不需要安装命令行goproxy程序.
-7. proxy-admin面板没有命令行goproxy商业版功能。
  
 ## 购买商业版
 
