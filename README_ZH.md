@@ -184,7 +184,7 @@ Proxy is licensed under GPLv3 license。
 
 ### 5. 关于proxy-admin控制面板和命令行gorpoxy
 
-软件名称| 　　　免费版功能　　　 | 　　　商业版功能　　　 | 　　　购买使用　　　　　|特点
+软件名称| 　　　免费版功能　　　 | 　　　商业版功能　　　 | 　　　需购买使用　　　　　|特点
 :----------- | :---: | :---: | :---: | :---:
 proxy-admin free免费版 |   √ |   x |   x| Web界面操作，免费使用，服务数量有限制，适合个人，小白和白嫖党
 proxy-admin vip版 |   √ |   x |   √| Web界面操作，服务数量无限制，适合个体户或者小集体
