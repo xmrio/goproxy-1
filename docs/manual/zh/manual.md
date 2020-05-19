@@ -30,9 +30,9 @@ gorproxy命令行 commercial商业版|   √ |   √ |   √|命令行操作，�
 
 关于免费版功能和商业版功能对比请看这里,[`免费版`和`商业版`功能对比](https://snail007.github.io/goproxy/page/free_vs_commercial/).  
 
-VIP控制面板项目地址：[点击进入](https://github.com/snail007/proxy-admin-vip)  
+控制面板`VIP版`项目地址：[点击进入](https://github.com/snail007/proxy-admin-vip)  
 
-COML商业版控制面板地址：[点击进入](https://github.com/snail007/proxy-admin-commercial)  
+控制面板`COML商业版`项目地址：[点击进入](https://github.com/snail007/proxy-admin-commercial)  
 
 ## 购买商业版
 
