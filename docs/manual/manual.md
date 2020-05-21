@@ -147,15 +147,15 @@ Http (s) agent, SPS agent, intranet penetration, tcp agent support the connectio
 The parameters are: --jumper, all the formats are as follows:  
 
 ```text  
- Http://username:password@host:port  
- Http://host:port  
- Https://username:password@host:port  
- Https://host:port  
- Socks5://username:password@host:port  
- Socks5://host:port  
- Socks5s://username:password@host:port  
- Socks5s://host:port  
- Ss://method:password@host:port  
+ http://username:password@host:port  
+ http://host:port  
+ https://username:password@host:port  
+ https://host:port  
+ socks5://username:password@host:port  
+ socks5://host:port  
+ socks5s://username:password@host:port  
+ socks5s://host:port  
+ ss://method:password@host:port  
 ```  
 
 Http,socks5 represents the normal http and socks5 proxy.  
@@ -615,9 +615,9 @@ For example, limit the connection rate of each tcp to 100k/s:
 Examples:
 
 VPS (IP: 22.22.22.33) implementation:
-`proxy tcp -t tcp --c -p": 33080 "-T tcp -P" 127.0.0.1:8080 "`
+`proxy tcp -t tcp --c -p ":33080" -T tcp -P "127.0.0.1:8080"`
 Local execution:
-`proxy tcp -t tcp -p": 23080 "-T tcp -P" 22.22.22.33:33080 "--C`
+`proxy tcp -t tcp -p ":23080" -T tcp -P "22.22.22.33:33080" --C`
 
 ### 2.10 View Help
 `proxy help tcp`  
@@ -1390,9 +1390,9 @@ Www.a.com:80 10.0.0.2:8080
 
 By default, the port number of the UDP function of ss's socks5 is specified by the `rfc1982 draft`. It is randomly specified during the protocol handshake process and does not need to be specified in advance.
 
-However, in some cases, you need to fix the UDP function port. You can fix the port number of the UDP function by the parameter `--udp-port port number`, for example:
+However, in some cases, you need to fix the UDP function port. You can fix the port number of the UDP function by the parameter `--udp-port port_number`, for example:
 
-`proxy sps -t tcp -p" 0.0.0.0:38080" --udp port 38081`
+`proxy sps -t tcp -p "0.0.0.0:38080" --udp-port 38081`
 
 It should be noted that the ss function of sps also has UDP function, and the UDP port of ss is the same as the tcp port, so avoid the conflict between the UDP port of socks5 and the UDP port of ss.
 
@@ -1403,7 +1403,7 @@ The sps mode supports the iptables transparent forwarding support of the Linux s
 
 Example start command:
 
-`proxy sps --redir -p: 8888 -P httpws: //1.1.1.1: 33080`
+`proxy sps --redir -p :8888 -P httpws: //1.1.1.1:33080`
 
 Here it is assumed that there is an http superior proxy 1.1.1.1:33080, which uses ws to transmit data.
 
@@ -1758,7 +1758,7 @@ ip: The ip address of the client currently connected to the proxy. Multiple are 
 The connection between the returned user and ip will be disconnected by proxy.
 
 #### Example
-Suppose --control-url `http: //127.0.0.1: 33088 / user / control.php` points to a PHP interface address.
+Suppose --control-url `http://127.0.0.1:33088/user/control.php` points to a PHP interface address.
 The content of control.php is as follows:
 
 ```php  
