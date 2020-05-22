@@ -1,5 +1,7 @@
-## 赞助商广告
+## Advertisement
+<a href="https://www.huobi.me/zh-cn/topic/invited/?invite_code=qpi54">
 <img width="auto" height="100" src="https://www.huobi.me/zh-cn/topic/invited/?invite_code=qpi54"/>
+</a>
 
 ## GOPROXY Introduction
 <img src="https://github.com/snail007/goproxy/blob/master/doc/images/logo.jpg?raw=true" width="200" height="auto"/>
