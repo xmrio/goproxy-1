@@ -25,7 +25,7 @@
 软件名称 | 免费版功能 | 商业版功能 | 购买使用 | 特点
 :----------- | :---: | :---: | :---: | :---:
 [proxyadmin 免费版](https://github.com/snail007/proxy_admin_free) |   √ |   x |   x| Web界面操作，免费使用，服务数量有限制，适合个人，小白和白嫖党
-[proxyadmin VIP版](https://github.com/snail007/proxy-admin-vip) |   √ |   x |   √| Web界面操作，服务数量无限制，适合个体户或者小集体
+[proxyadmin VIP版](https://github.com/snail007/proxy-admin-vip) |   √ |   x |   √| Web界面操作，功能和免费版一样，服务数量无限制，适合个体户或者小集体
 [proxyadmin 商业版](https://github.com/snail007/proxy-admin-commercial) |   √ |   √ |   √|Web界面操作，无限制，适合集体或公司对外提供服务
 [gorproxy 免费版](https://github.com/snail007/goproxy) |   √ |   x |   x|命令行操作，免费使用，稳定且灵活，适合一切熟悉命令行的大佬或集体或公司白嫖，自用或者大规模部署对外服务
 [gorproxy 商业版](https://github.com/snail007/goproxy)|   √ |   √ |   √|命令行操作，稳定且灵活，适合集体或公司大规模部署对外提供服务
