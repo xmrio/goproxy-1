@@ -1820,3 +1820,21 @@ Rule interpretation:
 ##### `--rate-limit`  
 Limit the speed of each tcp connection of the service, for example: 100K 2000K 1M . 0 means unlimited, default 0.  
 
+## 11. Cluster
+
+The proxy supports the cluster management. The proxy is installed on each machine node as an agent, with the control panel [`proxyadmin cluster edition`] (https://github.com/snail007/proxy-admin-cluster) Unified management of proxy services on massive machines.
+
+If the proxy is to be run as an agent, assume that the cluster port address of the control panel is: `1.1.1.1: 55333`.
+
+The command example is as follows:
+
+`proxy agent -k xxx -c 1.1.1.1: 55333`
+
+Command explanation:
+
+agent: is a function parameter, which means running agent mode.
+
+-k : The encryption and decryption key for communication with `proxyadmin cluster edition`. This key is set in the configuration file of` proxyadmin cluster edition`.
+
+-c : The cluster port address of `proxyadmin cluster edition`, format: IP:port.
+

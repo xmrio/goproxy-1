@@ -27,6 +27,7 @@
 [proxyadmin 免费版](https://github.com/snail007/proxy_admin_free) |   √ |   x |   x| Web界面操作，免费使用，服务数量有限制，适合个人，小白和白嫖党
 [proxyadmin VIP版](https://github.com/snail007/proxy-admin-vip) |   √ |   x |   √| Web界面操作，功能和免费版一样，服务数量无限制，适合个体户或者小集体
 [proxyadmin 商业版](https://github.com/snail007/proxy-admin-commercial) |   √ |   √ |   √|Web界面操作，无限制，适合集体或公司对外提供服务
+[proxyadmin 集群版](https://github.com/snail007/proxy-admin-cluster) |   √ |   √ |   √|Web界面操作，无限制，配合`gorproxy 商业版`,可以实现以组为单位，管理海量机器上的proxy服务，适合有大量机器的集体或公司对外提供服务
 [gorproxy 免费版](https://github.com/snail007/goproxy) |   √ |   x |   x|命令行操作，免费使用，稳定且灵活，适合一切熟悉命令行的大佬或集体或公司白嫖，自用或者大规模部署对外服务
 [gorproxy 商业版](https://github.com/snail007/goproxy)|   √ |   √ |   √|命令行操作，稳定且灵活，适合集体或公司大规模部署对外提供服务
 
@@ -1796,4 +1797,33 @@ proxy的http(s)/socks5/sps代理功能可以通过
 
 ##### `--rate-limit`  
 限制服务的每一个tcp连接的速度，比如:100K 2000K 1M . 0意味着无限制，默认0。
+
+## 11.集群管理
+
+proxy支持集群管理功能，此时proxy安装在每个机器节点上作为agent，配合控制面板[`proxyadmin集群版`](https://github.com/snail007/proxy-admin-cluster)，就能够实现统一管理海量机器上的proxy服务。  
+
+proxy如果要作为agent运行，假设控制面板的集群端口地址是：`1.1.1.1:55333`.  
+
+命令示例如下：  
+
+`proxy agent -k xxx -c 1.1.1.1:55333`  
+
+命令解释：  
+
+agent ： 是功能参数，表示运行agent模式。  
+
+-k ：和`proxyadmin集群版`通讯加密解密的密钥，这个密钥是在`proxyadmin集群版`的配置文件里面设置的。  
+
+-c ：`proxyadmin集群版`的集群端口地址，格式：IP:端口。  
+
+
+
+
+
+
+
+
+
+
+
 
