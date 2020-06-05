@@ -1828,7 +1828,7 @@ If the proxy is to be run as an agent, assume that the cluster port address of t
 
 The command example is as follows:
 
-`proxy agent -k xxx -c 1.1.1.1: 55333`
+`proxy agent -k xxx -c 1.1.1.1:55333 -i test`
 
 Command explanation:
 
@@ -1838,3 +1838,14 @@ agent: is a function parameter, which means running agent mode.
 
 -c : The cluster port address of `proxyadmin cluster edition`, format: IP:port.
 
+-i ： The unique identifier of the agent ensures that each agent is different. The "unique identifier" specified here is used when adding a node to the control panel. The IP is filled with this "unique identifier".
+If -i is not specified, the default is empty, and the control panel adds the IP field to fill in: the agent's internet IP.
+
+notice:
+
+When the client service is configured in the control panel, all nodes use the same key, which leads to only one client working. To solve this problem,
+Client service parameters can use placeholders: `{AGENT_ID}` to refer to the agent’s id as the client’s key, so as to ensure that each client has a unique key.
+
+For example, client service parameters:
+
+`client -T tcp -P 1.1.1.1:30000 --k {AGENT_ID}`

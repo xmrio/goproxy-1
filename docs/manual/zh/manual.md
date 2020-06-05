@@ -1806,7 +1806,7 @@ proxy如果要作为agent运行，假设控制面板的集群端口地址是：`
 
 命令示例如下：  
 
-`proxy agent -k xxx -c 1.1.1.1:55333`  
+`proxy agent -k xxx -c 1.1.1.1:55333 -i test`  
 
 命令解释：  
 
@@ -1816,9 +1816,17 @@ agent ： 是功能参数，表示运行agent模式。
 
 -c ：`proxyadmin集群版`的集群端口地址，格式：IP:端口。  
 
+-i ： agent唯一标识，保证每个agent的都不一样，此处指定的`唯一标识`,在控制面板添加节点的时候用到，IP一栏填写这个`唯一标识`。
+      如果-i不指定，默认是空，控制面板添加节点的时候IP一栏填写：agent的出口IP。
 
+提示：
 
+当控制面板里面配置了client服务，那么所有节点都使用相同都key那么就导致，只有一个client可以工作，为了解决这个问题，  
+client服务参数里面可以通过使用占位符：`{AGENT_ID}`引用agent的id当作client的key，这样就可以保证每个客户端都有唯一的key。  
 
+比如client服务参数：  
+
+`client -T tcp -P 1.1.1.1:30000 --k {AGENT_ID}`  
 
 
 
