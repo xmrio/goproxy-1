@@ -192,7 +192,9 @@ Proxy is licensed under GPLv3 license。
 
 [点击查看其它安装教程](https://github.com/snail007/goproxy/blob/master/README_ZH.md#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85-goproxy)
 
-### 5. 关于proxy-admin控制面板和命令行gorpoxy
+### 5. 关于proxyadmin控制面板和命令行gorpoxy
+
+提示：**免费和付费软件均没有额外技术支持，不按着手册操作的一切问题请自行解决。付费软件免费享有`手册功能`使用指导和`首次安装配置`指导。**
 
 以下软件都是相互独立使用，没有依赖关系，需要购买的也是分别单独购买使用。
 
