@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="pinterest" content="nopin">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.56.3" />
 
 
 
@@ -152,39 +152,72 @@
 
   
 
-  <div class="article-body"><h3 id="在windows下实现基于dns的自动全局代理">在windows下实现基于dns的自动全局代理。</h3>
-<p>本方法需要监听本地80和443端口，所以如果你有程序占用了这两个端口，请关闭相应的程序。</p>
-<p>本文提供了两种方式：1.使用CDN作为中间传输层 2.不使用CDN；根据自己情况二选一即可。</p>
-<h4 id="1正常配置篇">1.正常配置篇</h4>
-<p>服务端为机器A</p>
-<p>1、在上级服务端执行：</p>
-<p><code>./proxy http -t ws -p 0.0.0.0:8443  —-daemon</code></p>
-<p>3、在电脑上：</p>
-<p>1）修改proxy目录下面的hosts文件，该文件和proxy.exe程序一起。</p>
-<p>添加如下内容：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">127.0.0.1  **.**  
+  <div class="article-body">
 
-</code></pre></div><p>2）修改本地网络连接的dns地址为127.0.0.1。</p>
-<p>3）本机启动一个二级sps监听80和443。</p>
-<p><code>proxy.exe sps -P httpws://IP_A:8443 -p :80,:443 -q 8.8.8.8:53</code></p>
-<p>4）本地启动一个dns监听53 <code>.\proxy.exe dns -P http://127.0.0.1:80 --hosts .\hosts</code> 。</p>
-<h4 id="2配合cdn配置篇">2.配合CDN配置篇</h4>
-<p>1、配置好cloudflare，CDN加速域名为：your.domain.com。</p>
-<p>2、在上级服务端执行：</p>
-<p>首先生成证书：</p>
-<p><code>proxy keygen -C proxy</code></p>
-<p>然后：</p>
-<p><code>./proxy http -t wss -p 0.0.0.0:8443 —-daemon</code></p>
+<h3 id="在windows下实现基于dns的自动全局代理">在windows下实现基于dns的自动全局代理。</h3>
+
+<p>本方法需要监听本地80和443端口，所以如果你有程序占用了这两个端口，请关闭相应的程序。</p>
+
+<p>本文提供了两种方式：1.使用CDN作为中间传输层 2.不使用CDN；根据自己情况二选一即可。</p>
+
+<h4 id="1-正常配置篇">1.正常配置篇</h4>
+
+<p>服务端为机器A</p>
+
+<p>1、在上级服务端执行：</p>
+
+<p><code>./proxy http -t ws -p 0.0.0.0:8443  —-daemon</code></p>
+
 <p>3、在电脑上：</p>
+
 <p>1）修改proxy目录下面的hosts文件，该文件和proxy.exe程序一起。</p>
+
 <p>添加如下内容：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">111.222.111.222 your.domain.com
+
+<pre><code class="language-text">127.0.0.1  **.**  
+
+</code></pre>
+
+<p>2）修改本地网络连接的dns地址为127.0.0.1。</p>
+
+<p>3）本机启动一个二级sps监听80和443。</p>
+
+<p><code>proxy.exe sps -P httpws://IP_A:8443 -p :80,:443 -q 8.8.8.8:53</code></p>
+
+<p>4）本地启动一个dns监听53 <code>.\proxy.exe dns -P http://127.0.0.1:80 --hosts .\hosts</code> 。</p>
+
+<h4 id="2-配合cdn配置篇">2.配合CDN配置篇</h4>
+
+<p>1、配置好cloudflare，CDN加速域名为：your.domain.com。</p>
+
+<p>2、在上级服务端执行：</p>
+
+<p>首先生成证书：</p>
+
+<p><code>proxy keygen -C proxy</code></p>
+
+<p>然后：</p>
+
+<p><code>./proxy http -t wss -p 0.0.0.0:8443 —-daemon</code></p>
+
+<p>3、在电脑上：</p>
+
+<p>1）修改proxy目录下面的hosts文件，该文件和proxy.exe程序一起。</p>
+
+<p>添加如下内容：</p>
+
+<pre><code class="language-text">111.222.111.222 your.domain.com
 
 127.0.0.1  **.**  
 
-</code></pre></div><p>2）修改本地网络连接的dns地址为127.0.0.1。</p>
+</code></pre>
+
+<p>2）修改本地网络连接的dns地址为127.0.0.1。</p>
+
 <p>3）本机启动一个二级sps监听80和443。</p>
+
 <p><code>proxy.exe sps -P httpwss://your.domain.com:8443 -p :80,:443 -q 8.8.8.8:53</code></p>
+
 <p>4）本地启动一个dns监听53 <code>.\proxy.exe dns -P http://127.0.0.1:80 -—hosts .\hosts</code> 。</p>
 </div>
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="pinterest" content="nopin">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.73.0" />
+<meta name="generator" content="Hugo 0.56.3" />
 
 
 
@@ -152,16 +152,27 @@
 
   
 
-  <div class="article-body"><h4 id="内网穿透之套cdn">内网穿透之套CDN</h4>
+  <div class="article-body">
+
+<h4 id="内网穿透之套cdn">内网穿透之套CDN</h4>
+
 <p><strong>好处就不用说了吧，两个字稳！</strong></p>
-<p>假如在windows上配置了可以访问的连接 http://127.0.0.1:801/abc/index.php , 如何能使用VPS+CDN做内网穿透呢？</p>
+
+<p>假如在windows上配置了可以访问的连接 <a href="http://127.0.0.1:801/abc/index.php">http://127.0.0.1:801/abc/index.php</a> , 如何能使用VPS+CDN做内网穿透呢？</p>
+
 <p>配置如下：</p>
-<h5 id="1-在vps上执行配置无误后再加上--daemon">1. 在VPS上执行（配置无误后，再加上&ndash;daemon）</h5>
+
+<h5 id="1-在vps上执行-配置无误后-再加上-daemon">1. 在VPS上执行（配置无误后，再加上&ndash;daemon）</h5>
+
 <p><code>./proxy bridge -t ws -p &quot;:8080&quot; -C proxy.crt -K proxy.key</code></p>
+
 <p><code>./proxy server -T ws -r &quot;:8880@:801&quot; -P &quot;127.0.0.1:8080&quot; -C proxy.crt -K proxy.key</code></p>
+
 <h5 id="2-在windows上执行">2. 在windows上执行</h5>
-<p><code>proxy.exe client -T ws -P &quot;your.domain.com:8080&quot; -C proxy.crt -K proxy.key </code></p>
-<h5 id="3-这时在浏览器里访问httpyourdomaincom8880abcindexphp-就会看到电脑中的页面了">3. 这时在浏览器里访问：http://your.domain.com:8880/abc/index.php ，就会看到电脑中的页面了。</h5>
+
+<p><code>proxy.exe client -T ws -P &quot;your.domain.com:8080&quot; -C proxy.crt -K proxy.key</code></p>
+
+<h5 id="3-这时在浏览器里访问-http-your-domain-com-8880-abc-index-php-就会看到电脑中的页面了">3. 这时在浏览器里访问：<a href="http://your.domain.com:8880/abc/index.php">http://your.domain.com:8880/abc/index.php</a> ，就会看到电脑中的页面了。</h5>
 </div>
 
   <footer class="article-footer">
