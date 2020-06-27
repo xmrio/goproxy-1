@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="pinterest" content="nopin">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 
 
@@ -152,30 +152,21 @@
 
   
 
-  <div class="article-body">
-
-<h3 id="问-http代理支持https网站吗">问：http代理支持https网站吗？</h3>
-
+  <div class="article-body"><h3 id="问http代理支持https网站吗">问：http代理支持https网站吗？</h3>
 <p>答：goproxy的http代理同时支持http和https网站。</p>
-
-<h3 id="问-socks5代理支持udp吗">问：socks5代理支持UDP吗？</h3>
-
+<h3 id="问socks5代理支持udp吗">问：socks5代理支持UDP吗？</h3>
 <p>答：goproxy的socks5代理是完全按着<a href="https://tools.ietf.org/html/rfc1928">rfc1982</a>草案实现的，支持UDP功能，草案规定UDP端口是在代理握手请求过程中服务端动态指定的，不需要提前指定。如果你使用的socks5客户端是标准客户端，是不需要你手动指定UDP端口的。</p>
-
-<h3 id="问-什么是http代理-https代理">问：什么是http代理？https代理？</h3>
-
-<p>答：无论是<code>http代理</code>还是<code>https代理</code>，都支持同时代理访问<code>http</code>和<code>https</code>网站。<br />
-<code>http代理</code>和<code>https代理</code>里的http和https和你访问的网站是否是http（https）是无关的。<br />
-<code>http代理</code>：客户端和代理服务器之间是<code>tcp</code>传输数据。<br />
-<code>https代理</code>：客户端和代理服务器之间是<code>tls</code>加密传输数据。<br />
+<h3 id="问什么是http代理https代理">问：什么是http代理？https代理？</h3>
+<p>答：无论是<code>http代理</code>还是<code>https代理</code>，都支持同时代理访问<code>http</code>和<code>https</code>网站。<br>
+<code>http代理</code>和<code>https代理</code>里的http和https和你访问的网站是否是http（https）是无关的。<br>
+<code>http代理</code>：客户端和代理服务器之间是<code>tcp</code>传输数据。<br>
+<code>https代理</code>：客户端和代理服务器之间是<code>tls</code>加密传输数据。<br>
 http代理是使用最广泛的代理，大部分客户端都不支持https代理。</p>
-
-<h3 id="问-goproxy的http代理是http代理还是https代理">问：goproxy的http代理是http代理还是https代理？</h3>
-
-<p>答：goproxy支持http代理，https代理，https双向认证代理。<br />
-至于提供什么类型的代理，是参数<code>-t</code>决定的：<br />
-http代理 ：<code>-t tcp</code><br />
-https代理：<code>-t tls --local-tls-single</code>，服务端需要设置tls证书。<br />
+<h3 id="问goproxy的http代理是http代理还是https代理">问：goproxy的http代理是http代理还是https代理？</h3>
+<p>答：goproxy支持http代理，https代理，https双向认证代理。<br>
+至于提供什么类型的代理，是参数<code>-t</code>决定的：<br>
+http代理 ：<code>-t tcp</code> <br>
+https代理：<code>-t tls --local-tls-single</code>，服务端需要设置tls证书。<br>
 https双向认证代理：<code>-t tls</code>，服务端和客户端都需要设置一样的tls证书。</p>
 </div>
 
