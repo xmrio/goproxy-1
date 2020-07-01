@@ -18,12 +18,7 @@
 
 [点击查看其它安装教程](https://github.com/snail007/goproxy/blob/master/README_ZH.md#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85-goproxy)
 
-## 免费版、商业版说明
-
-本手册描述功能,`proxyadmin商业版`和`goproxy商业版`全部包含;认证等高级功能参数免费版和VIP控制面板不包含; 
-
-如果您用`goproxy免费版`执行某些命令或者`proxyadmin 免费版`、`proxyadmin VIP版`服务启动失败的时候遇到,类似如下xxx参数不存在的提示,说明这个参数是商业版的功能,您需要下载并购买商业版授权才能使用.  
-` err : unknown short flag '-a'`  
+### 5. 关于proxy-admin控制面板和命令行gorpoxy
 
 以下软件都是相互独立使用，没有依赖关系，需要购买的也是分别单独购买使用。
 
@@ -38,10 +33,12 @@
 
 关于免费版功能和商业版功能对比请看这里,[`免费版`和`商业版`功能对比](https://snail007.github.io/goproxy/page/free_vs_commercial/).  
 
-提示：
+## 购买商业版
 
-**免费和付费软件均没有额外技术支持，不按着手册操作的一切问题请自行解决。付费软件免费享有`手册功能`使用指导和`首次安装配置`指导。**
-
+本手册描述功能,商业版全部包含;认证等高级功能参数免费版不包含;  
+如果您用免费版执行某些命令等时候遇到,类似如下xxx参数不存在的提示,说明这个参数是商业版的功能,您需要下载并购买商业版授权才能使用.  
+` err : unknown short flag '-a'`  
+免费版和商业版功能对比、如何购买和使用商业版详细操作[请点击这里查看](https://snail007.github.io/goproxy/page/free_vs_commercial/).   
 
 ## 首次使用必看,谢谢!!！ 
 
