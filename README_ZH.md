@@ -192,7 +192,12 @@ Proxy is licensed under GPLv3 license。
 
 [点击查看其它安装教程](https://github.com/snail007/goproxy/blob/master/README_ZH.md#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85-goproxy)
 
-### 5. 关于proxy-admin控制面板和命令行gorpoxy
+## 免费版、商业版说明
+
+本手册描述功能,`proxyadmin商业版`和`goproxy商业版`全部包含;认证等高级功能参数免费版和VIP控制面板不包含; 
+
+如果您用`goproxy免费版`执行某些命令或者`proxyadmin 免费版`、`proxyadmin VIP版`服务启动失败的时候遇到,类似如下xxx参数不存在的提示,说明这个参数是商业版的功能,您需要下载并购买商业版授权才能使用.  
+` err : unknown short flag '-a'`  
 
 以下软件都是相互独立使用，没有依赖关系，需要购买的也是分别单独购买使用。
 
@@ -207,12 +212,10 @@ Proxy is licensed under GPLv3 license。
 
 关于免费版功能和商业版功能对比请看这里,[`免费版`和`商业版`功能对比](https://snail007.github.io/goproxy/page/free_vs_commercial/).  
 
-## 购买商业版
+提示：
 
-本手册描述功能,商业版全部包含;认证等高级功能参数免费版不包含;  
-如果您用免费版执行某些命令等时候遇到,类似如下xxx参数不存在的提示,说明这个参数是商业版的功能,您需要下载并购买商业版授权才能使用.  
-` err : unknown short flag '-a'`  
-免费版和商业版功能对比、如何购买和使用商业版详细操作[请点击这里查看](https://snail007.github.io/goproxy/page/free_vs_commercial/).   
+**免费和付费软件均没有额外技术支持，不按着手册操作的一切问题请自行解决。付费软件免费享有`手册功能`使用指导和`首次安装配置`指导。**
+
 
 ## 首次使用必看,谢谢!!！ 
 
@@ -1932,6 +1935,10 @@ $data=["user"=>implode(","$badUsers),"ip"=>""];
 echo json_encode($data);
 ```  
 
+### 使用代理
+
+http(s)/socks5/sps认证API(`--auth-url`)、控制API(`--control-url`)、流量上报API(`--traffic-url`)三个地址的访问，支持通过代理访问，参数是:`--auth-proxy`,格式和`--jumper`格式一致，详细详细请参考`--jumper`。
+
 ## 10.本地认证，限速，控制连接数  
 
 proxy的http(s)/socks5/sps代理功能，支持通过配置文件控制用户对代理对访问，支持开启http(s)代理``Proxy Basic 代理认证`,socks5代理认证。  
@@ -1992,17 +1999,19 @@ agent ： 是功能参数，表示运行agent模式。
 
 -i ： agent唯一标识，保证每个agent的都不一样，此处指定的`唯一标识`,在控制面板添加节点的时候用到，IP一栏填写这个`唯一标识`。
       如果-i不指定，默认是空，控制面板添加节点的时候IP一栏填写：agent的出口IP。
+-u： 代理参数，默认是空。可以指定一个代理，agent会通过这个代理与cluster通讯。
+     格式和`--jumper`格式一致，详细情况请参考手册中`--jumper`部分。
 
 提示：
 
-当控制面板里面配置了client服务，那么所有节点都使用相同都key那么就导致，只有一个client可以工作，为了解决这个问题，  
+1.当控制面板里面配置了client服务，那么所有节点都使用相同都key那么就导致，只有一个client可以工作，为了解决这个问题，  
 client服务参数里面可以通过使用占位符：`{AGENT_ID}`引用agent的id当作client的key，这样就可以保证每个客户端都有唯一的key。  
 
 比如client服务参数：  
 
 `client -T tcp -P 1.1.1.1:30000 --k {AGENT_ID}`  
 
-
+2.如果使用了代理参数`-u`,务必设置唯一标示参数`-i`,不然cluster无法区分不同的agent，agent将不能正常工作。
 
 
 
