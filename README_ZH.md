@@ -1,5 +1,5 @@
 ## 赞助商广告
-<a href="https://www.huobi.sc/zh-cn/topic/invited/?invite_code=qpi54">
+<a href="https://www.huobi.fm/zh-cn/topic/invited/?invite_code=qpi54">
 <img width="auto" height="100" src="/doc/images/zanzhu-1.png"/>
 </a>
 
@@ -1539,6 +1539,8 @@ sps下级，限速100K
 sps功能不强制指定一个上级，当上级为空，sps本身即可完成完整的代理功能.如果指定了上级那么就和之前一样使用上级连接目标。  
 下面这个命令，就是一键开启http(s)\ss\socks服务。  
 `proxy sps -p :33080`  
+
+sps独立服务时，会额外开启一个本地socks5服务占用一个随机端口，现在增加参数`--self-port`可以在需要的时候手动指定这个端口，默认是0使用随机。  
 
 ### 6.16 目标重定向  
 sps功能提供的http(s)\socks5\ss代理功能，客户端通过sps代理去连接指定的“目标”，这个“目标”一般是网站也可能是任意的tcp地址，  

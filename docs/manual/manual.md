@@ -1386,6 +1386,8 @@ Www.a.com:80 10.0.0.2:8080
 192.168.0.11:80 10.0.0.2:8080  
 ```  
 
+When sps is an independent service, an additional local socks5 service will be opened to occupy a random port. Now the parameter `--self-port` can be manually specified when needed. The default is 0 to use random.
+
 ### 6.17 Fixed UDP PORT
 
 By default, the port number of the UDP function of ss's socks5 is specified by the `rfc1982 draft`. It is randomly specified during the protocol handshake process and does not need to be specified in advance.

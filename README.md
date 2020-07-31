@@ -1,5 +1,5 @@
 ## Advertisement
-<a href="https://www.huobi.sc/zh-cn/topic/invited/?invite_code=qpi54">
+<a href="https://www.huobi.fm/zh-cn/topic/invited/?invite_code=qpi54">
 <img width="auto" height="100" src="/doc/images/zanzhu-1.png"/>
 </a>
 
@@ -1558,6 +1558,8 @@ Www.a.com:80 10.0.0.2:8080
 **.b.com:80 10.0.0.2:80  
 192.168.0.11:80 10.0.0.2:8080  
 ```  
+
+When sps is an independent service, an additional local socks5 service will be opened to occupy a random port. Now the parameter `--self-port` can be manually specified when needed. The default is 0 to use random.
 
 ### 6.17 Fixed UDP PORT
 
