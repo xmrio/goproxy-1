@@ -1843,6 +1843,9 @@ agent: is a function parameter, which means running agent mode.
 -i ： The unique identifier of the agent ensures that each agent is different. The "unique identifier" specified here is used when adding a node to the control panel. The IP is filled with this "unique identifier".
 If -i is not specified, the default is empty, and the control panel adds the IP field to fill in: the agent's internet IP.
 
+-u: proxy parameter, empty by default. You can specify an agent, and the agent will communicate with the cluster through this agent.  
+     The format is the same as that of `--jumper`. For details, please refer to the `--jumper` part of the manual. 
+
 notice:
 
 When the client service is configured in the control panel, all nodes use the same key, which leads to only one client working. To solve this problem,
