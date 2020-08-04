@@ -14,13 +14,14 @@
 ---
 ### [点击我观看视频教程](https://space.bilibili.com/472844633)
 - [点击下载](https://github.com/snail007/goproxy/releases)
-- 如果上面不能正常下载，点击这里[镜像下载](https://mirrors.host900.com/snail007/goproxy/)
+- [镜像下载](https://mirrors.host900.com/snail007/goproxy/)
+- [官方手册（国内）](https://snail.gitee.io/proxy/manual/zh/)
+- [官方手册（国外）](https://snail007.github.io/goproxy/manual/zh/)
 - [桌面版，控制面板ProxyAdmin](https://github.com/snail007/proxy_admin_free/blob/master/README_ZH.md)
 - [安卓全局代理版](https://github.com/snail007/goproxy-ss-plugin-android) 
 - [安卓全能代理版](https://github.com/snail007/goproxy-android) 
 - [安卓内网穿透客户端](https://github.com/snail007/lanass) 
 - [SDK](https://github.com/snail007/goproxy-sdk)
-- [GORPOXY帮助手册](https://snail007.github.io/goproxy/manual/zh/) 
 - [GORPOXY实战教程](https://snail007.github.io/goproxy)  
 - [免费版VS商业版(安装、激活)](https://snail007.github.io/goproxy/page/free_vs_commercial/)
 
