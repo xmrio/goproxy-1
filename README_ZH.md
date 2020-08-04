@@ -13,8 +13,8 @@
 
 ---
 ### [点击我观看视频教程](https://space.bilibili.com/472844633)
-- [点击下载](https://github.com/snail007/goproxy/releases)
-- [镜像下载](https://mirrors.host900.com/snail007/goproxy/)
+- [下载地址（国外）](https://github.com/snail007/goproxy/releases)
+- [下载地址（国内）](https://mirrors.host900.com/snail007/goproxy/)
 - [官方手册（国内）](https://snail.gitee.io/proxy/manual/zh/)
 - [官方手册（国外）](https://snail007.github.io/goproxy/manual/zh/)
 - [桌面版，控制面板ProxyAdmin](https://github.com/snail007/proxy_admin_free/blob/master/README_ZH.md)
