@@ -204,12 +204,12 @@ Proxy is licensed under GPLv3 license。
 
 软件名称 | 免费版功能 | 商业版功能 | 购买使用 | 特点 | 传送门
 :----------- | :---: | :---: | :---: | :---: | :---:
-proxyadmin 免费版 |   √ |   x |   x| Web界面操作，支持Linux，Windows，macOS，免费使用，服务数量有限制，适合个人，小白和白嫖党 ｜ [下载安装](https://github.com/snail007/proxy_admin_free)
-proxyadmin VIP版 |   √ |   x |   √| Web界面操作，支持更多平台，功能和免费版一样，服务数量无限制，适合个体户或者小集体 ｜ [下载安装](https://github.com/snail007/proxy-admin-vip)
-proxyadmin 商业版 |   √ |   √ |   √|Web界面操作，支持更多平台，无限制，适合集体或公司对外提供服务 ｜ [下载安装](https://github.com/snail007/proxy-admin-commercial)
+proxyadmin 免费版 |   √ |   x |   x| Web界面操作，支持Linux，Windows，macOS，免费使用，服务数量有限制，适合个人，小白和白嫖党 | [下载安装](https://github.com/snail007/proxy_admin_free)
+proxyadmin VIP版 |   √ |   x |   √| Web界面操作，支持更多平台，功能和免费版一样，服务数量无限制，适合个体户或者小集体 | [下载安装](https://github.com/snail007/proxy-admin-vip)
+proxyadmin 商业版 |   √ |   √ |   √|Web界面操作，支持更多平台，无限制，适合集体或公司对外提供服务 | [下载安装](https://github.com/snail007/proxy-admin-commercial)
 proxyadmin 集群版|   √ |   √ |   √|Web界面操作，支持Linux，Windows，macOS，无限制，配合`goproxy 商业版`,可以实现以组为单位，管理海量机器上的proxy服务，适合有大量机器的集体或公司对外提供服务 ｜ [下载安装](https://github.com/snail007/proxy-admin-cluster) 
-goproxy 免费版 |   √ |   x |   x|命令行操作，全平台支持，免费使用，稳定且灵活，适合一切熟悉命令行的大佬或集体或公司白嫖，自用或者大规模部署对外服务 ｜ [下载安装](https://github.com/snail007/goproxy)
-goproxy 商业版|   √ |   √ |   √|命令行操作，全平台支持，稳定且灵活，适合集体或公司大规模部署对外提供服务 ｜ [下载安装](https://github.com/snail007/goproxy)
+goproxy 免费版 |   √ |   x |   x|命令行操作，全平台支持，免费使用，稳定且灵活，适合一切熟悉命令行的大佬或集体或公司白嫖，自用或者大规模部署对外服务 | [下载安装](https://github.com/snail007/goproxy)
+goproxy 商业版|   √ |   √ |   √|命令行操作，全平台支持，稳定且灵活，适合集体或公司大规模部署对外提供服务 | [下载安装](https://github.com/snail007/goproxy)
 
 关于免费版功能和商业版功能对比请看这里,[`免费版`和`商业版`功能对比](https://snail007.github.io/goproxy/page/free_vs_commercial/).  
 
