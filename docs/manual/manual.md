@@ -238,6 +238,12 @@ The proxy's blocked, direct, stop, only, hosts, resolve.rules, rewriter.rules, i
 
 socks5\sps\http proxies, the parameter that controls the number of concurrent client connections is: `--max-conns-rate`, which controls the maximum number of client connections per second, default: 20, 0 is unlimited
 
+### 15 Listen on multiple ports
+ 
+"tcp / http / socks / sps" supports listen on multiple ports and range ports.
+Under normal circumstances, it is sufficient to listen on one port, but if you need to listen on multiple ports, the -p parameter is supported.
+The format is: `-p 0.0.0.0:80,0.0.0.0:443,.0.0.0.0:8000-9000,:5000-6000`, more The bindings can be separated by commas.
+
 ## 1.HTTP Proxies  
 
 ### 1.1. Ordinary level HTTP proxy  
@@ -1208,11 +1214,7 @@ Then run a sps node on the pc and execute:
 
 carry out.  
 
-### 6.6 Listening to multiple ports  
-In general, listening to a port is fine, but if you need to listen to both ports 80 and 443 as a reverse proxy, the -p parameter is supported.  
-The format is: `-p 0.0.0.0:80, 0.0.0.0:443`, multiple bindings can be separated by commas.  
-
-### 6.7 Authentication  
+### 6.6 Authentication  
 Sps supports http(s)\socks5 proxy authentication, which can be cascaded and has four important pieces of information:  
 1: The user sends the authentication information `user-auth`.  
 2: Set the local authentication information `local-auth`.  
@@ -1240,7 +1242,7 @@ Subordinate: `proxy sps -S http -T tcp -P 127.0.0.1:8080 -A "user1:pass1" -t tcp
 
 For more details on certification, please refer to `9.API Certification` and `10.Local Certification`  
 
-### 6.8 Multiple Upstream  
+### 6.7 Multiple Upstream  
 
 If there are multiple upstreams, they can be specified by multiple -Ps.  
 
@@ -1277,7 +1279,7 @@ You can also set the `encryption method` and `password` of `ws\wss` by appending
 
 `#1` When multiple upper-level load balancing is a weighting strategy, the weights are rarely used.  
 
-### 6.9 Custom Encryption  
+### 6.8 Custom Encryption  
 The proxy sps proxy can encrypt tcp data through tls standard encryption and kcp protocol on top of tcp, in addition to support after tls and kcp  
 Custom encryption, that is, custom encryption and tls|kcp can be used in combination, internally using AES256 encryption, only need to define it when using  
 A password can be used, the encryption is divided into two parts, one part is whether the local (-z) encryption and decryption, and the part is the encryption and decryption with the upstream (-Z) transmission.  
@@ -1307,7 +1309,7 @@ Local three-level execution:
 `proxy sps -T tcp -P 3.3.3.3:8888 -Z other_password -t tcp -p :8080`  
 In this way, when the website is accessed through the local agent 8080, the target website is accessed through encrypted transmission with the upstream.  
 
-### 6.10 Compressed transmission  
+### 6.9 Compressed transmission  
 The proxy sps proxy can encrypt tcp data through custom encryption and tls standard encryption and kcp protocol on top of tcp. It can also be used before custom encryption.  
 Compress the data, that is, the compression function and the custom encryption and tls|kcp can be used in combination, and the compression is divided into two parts.  
 Part of it is local (-m) compression transmission, and part is whether the transmission with the upstream (-M) is compressed.  
@@ -1335,7 +1337,7 @@ Local three-level execution:
 `proxy sps -T tcp -P 3.3.3.3:8888 -M -t tcp -p :8080`  
 In this way, when the website is accessed through the local agent 8080, the target website is accessed through compression with the upstream.  
 
-### 6.11 Disabling the protocol  
+### 6.10 Disabling the protocol  
 By default, SPS supports http(s) and socks5 two proxy protocols. We can disable a protocol by parameter.  
 For example:  
 1. Disable the HTTP(S) proxy function to retain only the SOCKS5 proxy function, parameter: `--disable-http`.  
@@ -1344,7 +1346,7 @@ For example:
 1. Disable the SOCKS5 proxy function to retain only the HTTP(S) proxy function, parameter: `--disable-socks`.  
 `proxy sps -T tcp -P 3.3.3.3:8888 -M -t tcp -p :8080 --disable-socks`  
 
-### 6.12 Speed ​​limit  
+### 6.11 Speed ​​limit  
 
 Suppose there is a SOCKS5 upstream:  
 
@@ -1356,24 +1358,24 @@ SPS lower level, speed limit 100K
 
 It can be specified by the `-l` parameter, for example: 100K 2000K 1M . 0 means no limit.  
 
-### 6.13 Specifying Outgoing IP  
+### 6.12 Specifying Outgoing IP  
 
 The `--bind-listen` parameter can be used to open the client connection with the portal IP, and use the portal IP as the outgoing IP to access the target website. If the ingress IP is an intranet IP, the egress IP does not use the ingress IP.  
 
 `proxy sps -S socks -P 2.2.2.2:33080 -T tcp -Z password -l 100K -t tcp --bind-listen -p :33080`  
 
-### 6.14 Certificate parameters use base64 data  
+### 6.13 Certificate parameters use base64 data  
 
 By default, the -C, -K parameter is the path to the crt certificate and the key file.  
 
 If it is the beginning of base64://, then the latter data is considered to be base64 encoded and will be used after decoding.  
 
-### 6.15 Independent Service  
+### 6.14 Independent Service  
 The sps function does not force a upstream to be specified. When the upstream is empty, the sps itself can complete the full proxy function. If the upstream is specified, the upstream connection target is used as before.  
 The following command is to open the http(s)\ss\socks service with one click.  
 `proxy sps -p :33080`  
 
-### 6.16 Target Redirection  
+### 6.15 Target Redirection  
 The https(s)\socks5\ss proxy function provided by the sps function, the client connects to the specified "target" through the sps proxy. This "target" is generally a website or an arbitrary tcp address.  
 The website "target" is generally foo.com: 80, foo.com: 443, sps supports the use of the --rewrite parameter to specify a "target" redirection rule file, redirect the target, the client is non-perceived,  
 For example, if you redirect to "target": demo.com:80 to 192.168.0.12:80, then the client visits the website demo.com, in fact, the website service provided by 192.168.0.12.  
@@ -1388,7 +1390,7 @@ Www.a.com:80 10.0.0.2:8080
 
 When sps is an independent service, an additional local socks5 service will be opened to occupy a random port. Now the parameter `--self-port` can be manually specified when needed. The default is 0 to use random.
 
-### 6.17 Fixed UDP PORT
+### 6.16 Fixed UDP PORT
 
 By default, the port number of the UDP function of ss's socks5 is specified by the `rfc1982 draft`. It is randomly specified during the protocol handshake process and does not need to be specified in advance.
 
@@ -1400,7 +1402,7 @@ It should be noted that the ss function of sps also has UDP function, and the UD
 
 To specify a port that is different from the tcp port.
 
-### 6.18 iptables 透明代理  
+### 6.17 iptables 透明代理  
 The sps mode supports the iptables transparent forwarding support of the Linux system, which is commonly referred to as the iptables transparent proxy. If a iptables transparent proxy is performed on the gateway device, the device that is connected through the gateway can realize a non-aware proxy.
 
 Example start command:
@@ -1449,7 +1451,7 @@ iptables -t nat -A OUTPUT -p tcp -j PROXY
 - Delete the specified user-defined chain iptables -X chain name e.g. iptables -t nat -X PROXY  
 - Delete rule from selected chain iptables -D chain name rule details e.g. iptables -t nat -D PROXY -d 223.223.192.0/255.255.240.0 -j RETURN  
 
-### 6.19 Help  
+### 6.18 Help  
 
 `proxy help sps`  
 
