@@ -1220,7 +1220,7 @@ SOCKS5支持级联认证，-A可以设置上级认证信息。
 ## 6.SPS协议转换  
 
 ### 6.1 功能介绍  
-代理协议转换使用的是sps子命令，sps可以把已经存在的http(s)代理或者socks5代理或ss代理转换为一个端口同时支持http(s)和socks5和ss的代理，而且http(s)代理支持正向代理和反向代理(SNI)，转换后的SOCKS5代理，当上级是SOCKS5或者SS时仍然支持UDP功能；另外对于已经存在的http(s)代理或者socks5代理，支持tls、tcp、kcp三种模式，支持链式连接，也就是可以多个sps结点层级连接构建加密通道。  
+代理协议转换使用的是sps子命令，sps可以把已经存在的http(s)代理或者socks5代理或ss代理转换为一个端口同时支持http(s)和socks5和ss的代理，而且http(s)代理支持正向代理和反向代理(SNI)，当上级是SOCKS5时,转换后的SOCKS5或者SS代理仍然支持UDP功能；另外对于已经存在的http(s)代理或者socks5代理，支持tls、tcp、kcp三种模式，支持链式连接，也就是可以多个sps结点层级连接构建加密通道。  
 
 `ss`功能支持的加密方法为:aes-128-cfb ， aes-128-ctr ， aes-128-gcm ， aes-192-cfb ， aes-192-ctr ， aes-192-gcm ， aes-256-cfb ， aes-256-ctr ， aes-256-gcm ， bf-cfb ， cast5-cfb ， chacha20 ， chacha20-ietf ， chacha20-ietf-poly1305 ， des-cfb ， rc4-md5 ， rc4-md5-6 ， salsa20 ， xchacha20  
 
@@ -1237,6 +1237,7 @@ SOCKS5支持级联认证，-A可以设置上级认证信息。
 当本地使用kcp协议时,需要用-g指定vps公网IP,socks5的UDP功能才能正常使用.这时-g是返回给客户端的UDP地址中的IP地址.
 
 ### 6.2 HTTP(S)转HTTP(S)+SOCKS5+SS  
+转换后的SOCKS5或者SS代理不具备UDP功能。    
 假设已经存在一个普通的http(s)代理：127.0.0.1:8080，现在我们把它转为同时支持http(s)和socks5和ss的普通代理，转换后的本地端口为18080，ss加密方式:aes-192-cfb，ss密码:pass。  
 命令如下：  
 `proxy sps -S http -T tcp -P 127.0.0.1:8080 -t tcp -p :18080 -h aes-192-cfb -j pass`  
@@ -1250,6 +1251,7 @@ SOCKS5支持级联认证，-A可以设置上级认证信息。
 `proxy sps -S http -T kcp -P 127.0.0.1:8080 -t tcp -p :18080 --kcp-key demo123 -h aes-192-cfb -j pass`  
 
 ### 6.3 SOCKS5转HTTP(S)+SOCKS5+SS  
+如果上级是SOCKS5而且支持UDP功能，那么转换后的SOCKS5或者SS代理仍然支持UDP功能。  
 假设已经存在一个普通的socks5代理：127.0.0.1:8080，现在我们把它转为同时支持http(s)和socks5和ss的普通代理，转换后的本地端口为18080，ss加密方式:aes-192-cfb，ss密码:pass。  
 命令如下：  
 `proxy sps -S socks -T tcp -P 127.0.0.1:8080 -t tcp -p :18080 -h aes-192-cfb -j pass`  
@@ -1263,8 +1265,7 @@ SOCKS5支持级联认证，-A可以设置上级认证信息。
 `proxy sps -S socks -T kcp -P 127.0.0.1:8080 -t tcp -p :18080 --kcp-key demo123 -h aes-192-cfb -j pass`  
 
 ### 6.4 SS转HTTP(S)+SOCKS5+SS  
-SPS上级和本地支持ss协议，上级可以是SPS或者标准的ss服务。  
-SPS本地默认提供HTTP(S)\SOCKS5\SPS三种代理，当上级是SOCKS5时转换后的SOCKS5和SS支持UDP功能。  
+SPS上级和本地支持ss协议，上级可以是SPS或者标准的ss服务，转换后的SOCKS5或者SS代理不具备UDP功能。  
 假设已经存在一个普通的SS或者SPS代理(开启了ss，加密方式:aes-256-cfb，密码:demo)：127.0.0.1:8080，现在我们把它转为同时支持http(s)和socks5和ss的普通代理，转换后的本地端口为18080，转换后的ss加密方式:aes-192-cfb，ss密码:pass。  
 命令如下：  
 `proxy sps -S ss -H aes-256-cfb -J pass -T tcp -P 127.0.0.1:8080 -t tcp -p :18080 -h aes-192-cfb -j pass`。  
