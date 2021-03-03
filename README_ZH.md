@@ -13,8 +13,7 @@
 
 ---
 ### [点击我观看视频教程](https://space.bilibili.com/472844633)
-- [下载地址（国外）](https://github.com/snail007/goproxy/releases)
-- [下载地址（国内）](https://mirrors.host900.com/snail007/goproxy/)
+- [下载地址](https://github.com/snail007/goproxy/releases)
 - [官方手册（国外）](https://snail007.github.io/goproxy/manual/zh/)
 - [官方手册（国内）](https://snail.gitee.io/proxy/manual/zh/)
 - [桌面版，控制面板ProxyAdmin](https://github.com/snail007/proxy_admin_free/blob/master/README_ZH.md)
@@ -25,10 +24,24 @@
 - [GORPOXY实战教程](https://snail.gitee.io/proxy/)
 - [免费版VS商业版(安装、激活)](https://snail.gitee.io/proxy/page/free_vs_commercial/)
 
+## 国内下载
+
+请在github的下载链接前面加上: `https://mirrors.host900.com/` 。
+
+比如`v10.4`的github下载链接是：
+
+`https://github.com/snail007/goproxy/releases/download/v10.4/proxy-windows-amd64.tar.gz`
+
+那么国内下载地址就是：
+
+`https://mirrors.host900.com/https://github.com/snail007/goproxy/releases/download/v10.4/proxy-windows-amd64.tar.gz`
+
+此地址也适用于wget，curl直接命令行下载。
+
 ## ProxyAdmin介绍预览（这不是goproxy，是控制面板友情链接；安装使用goproxy请往下看，谢谢！）
 `ProxyAdmin` 是强大的代理服务工具 snail007/goproxy 的控制面板，运行了它，一秒让你的服务器变为强大的代理服务器，友好的交互界面，小白也能轻松上手，让你用起来得心应手，心情舒畅。
 
-![](https://github.com/snail007/proxy_admin_free/raw/master/res/images/socks5_cn.gif)
+![](https://mirrors.host900.com/https://github.com/snail007/proxy_admin_free/raw/master/res/images/socks5_cn.gif)
 
 ### goproxy能干什么？
 - 链式代理，程序本身可以作为一级代理，如果设置了上级代理那么可以作为二级代理，乃至N级代理。  
@@ -94,13 +107,13 @@
 免费版执行这个：  
 
 ```shell  
-curl -L https://mirrors.host900.com/snail007/goproxy/install_auto.sh | bash  
+curl -L https://mirrors.host900.com/https://github.com/snail007/goproxy/blob/master/install_auto.sh | bash  
 ```  
 
 商业版执行这个：  
 
 ```shell  
-curl -L https://mirrors.host900.com/snail007/goproxy/install_auto_commercial.sh | bash  
+curl -L https://mirrors.host900.com/https://github.com/snail007/goproxy/blob/master/install_auto_commercial.sh | bash  
 ```  
 
 安装完成，配置目录是/etc/proxy，更详细的使用方法请参考上面的手册目录，进一步了解你想要使用的功能。  
@@ -110,22 +123,22 @@ curl -L https://mirrors.host900.com/snail007/goproxy/install_auto_commercial.sh 
 
 1.下载goproxy
 
-根据你的平台和CPU类型选择,下载地址: https://mirrors.host900.com/snail007/goproxy ,  
+根据你的平台和CPU类型选择,下载地址: https://github.com/snail007/goproxy/releases ,  
 
-这里以`proxy-linux-amd64.tar.gz`为例,具体使用的时候,请根据你的平台和CPU类型选择具体文件名称.   
+这里以 `proxy-linux-amd64.tar.gz` `v10.4` 为例,具体使用的时候,请根据你的平台和CPU类型选择具体文件名称.   
 
 免费版执行这个：  
 
 ```shell  
 cd /root/proxy/  
-wget https://mirrors.host900.com/snail007/goproxy/proxy-linux-amd64.tar.gz  
+wget https://mirrors.host900.com/https://github.com/snail007/goproxy/releases/download/v10.4/proxy-linux-amd64.tar.gz  
 ```  
 
 商业版执行这个：  
 
 ```shell  
 cd /root/proxy/  
-wget https://mirrors.host900.com/snail007/goproxy/proxy-linux-amd64_commercial.tar.gz  
+wget https://mirrors.host900.com/https://github.com/snail007/goproxy/releases/download/v10.4/proxy-linux-amd64_commercial.tar.gz  
 ```  
 
 2.下载自动安装脚本
@@ -134,7 +147,7 @@ wget https://mirrors.host900.com/snail007/goproxy/proxy-linux-amd64_commercial.t
 
 ```shell  
 cd /root/proxy/  
-wget https://raw.githubusercontent.com/snail007/goproxy/master/install.sh  
+wget https://mirrors.host900.com/https://raw.githubusercontent.com/snail007/goproxy/master/install.sh  
 chmod +x install.sh  
 ./install.sh  
 ```  
@@ -143,7 +156,7 @@ chmod +x install.sh
 
 ```shell  
 cd /root/proxy/  
-wget https://raw.githubusercontent.com/snail007/goproxy/master/install_commercial.sh  
+wget https://mirrors.host900.com/https://raw.githubusercontent.com/snail007/goproxy/master/install_commercial.sh  
 chmod +x install_commercial.sh  
 ./install_commercial.sh  
 ```  

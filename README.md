@@ -15,8 +15,7 @@ The GoProxy is a high-performance http proxy, https proxy, socks5 proxy, ss prox
 
 ### [点击我观看视频教程](https://space.bilibili.com/472844633)
 - [中文介绍（必看）](https://github.com/snail007/goproxy/blob/master/README_ZH.md)
-- [下载地址（国外）](https://github.com/snail007/goproxy/releases)
-- [下载地址（国内）](https://mirrors.host900.com/snail007/goproxy/)
+- [下载地址](https://github.com/snail007/goproxy/releases)
 - [官方手册（国外）](https://snail007.github.io/goproxy/manual/zh/)
 - [官方手册（国内）](https://snail.gitee.io/proxy/manual/zh/)
 - [Download](https://github.com/snail007/goproxy/releases)
@@ -31,7 +30,7 @@ The GoProxy is a high-performance http proxy, https proxy, socks5 proxy, ss prox
 ### ProxyAdmin Demo
 And ProxyAdmin is a powerful web console of snail007/goproxy .
 
-![](https://github.com/snail007/proxy_admin_free/raw/master/res/images/socks5_en.gif)
+![](https://mirrors.host900.com/https://github.com/snail007/proxy_admin_free/raw/master/res/images/socks5_en.gif)
 
 ### What can it do?
 - Chained proxies, the program itself can be used as an proxies, and if it is set up, it can be used as a secondary proxies or even an N-level proxies.
@@ -89,13 +88,13 @@ Tip: All operations require root privileges.
 The free version performs this:
 
 ```shell
-curl -L https://raw.githubusercontent.com/snail007/goproxy/master/install_auto.sh | bash
+curl -L https://mirrors.host900.com/https://raw.githubusercontent.com/snail007/goproxy/master/install_auto.sh | bash
 ```
 
 The commercial version performs this:
 
 ```shell
-curl -L https://raw.githubusercontent.com/snail007/goproxy/master/install_auto_commercial.sh | bash
+curl -L https://mirrors.host900.com/https://raw.githubusercontent.com/snail007/goproxy/master/install_auto_commercial.sh | bash
 ```
 
 The installation is complete, the configuration directory is /etc/proxy. For more detailed usage, please refer to the manual directory above to learn more about the features you want to use.
@@ -113,14 +112,14 @@ The free version performs this:
 
 ```shell
 cd /root/proxy/
-wget https://github.com/snail007/goproxy/releases/download/v8.7/proxy-linux-amd64.tar.gz
+wget https://mirrors.host900.com/https://github.com/snail007/goproxy/releases/download/v7.9/proxy-linux-amd64.tar.gz
 ```
 
 The commercial version performs this:
 
 ```shell
 cd /root/proxy/
-wget https://github.com/snail007/goproxy/releases/download/v7.9/proxy-linux-amd64_commercial.tar.gz
+wget https://mirrors.host900.com/https://github.com/snail007/goproxy/releases/download/v7.9/proxy-linux-amd64_commercial.tar.gz
 ```
 
 2. Download the automatic installation script
@@ -129,7 +128,7 @@ The free version performs this:
 
 ```shell
 cd /root/proxy/
-wget https://raw.githubusercontent.com/snail007/goproxy/master/install.sh
+wget https://mirrors.host900.com/https://raw.githubusercontent.com/snail007/goproxy/master/install.sh
 chmod +x install.sh
 ./install.sh
 ```
@@ -138,7 +137,7 @@ The commercial version performs this:
 
 ```shell
 cd /root/proxy/
-wget https://raw.githubusercontent.com/snail007/goproxy/master/install_commercial.sh
+wget https://mirrors.host900.com/https://raw.githubusercontent.com/snail007/goproxy/master/install_commercial.sh
 chmod +x install_commercial.sh
 ./install_commercial.sh
 ```
@@ -159,11 +158,11 @@ If the proxy helps you solve a lot of problems, you can better support the proxy
 
 BTC  ADDRESS: `1BJcBhGhREiz1q3VTYoiVPuAZy5PGxRG9z`
 
-<img src="https://raw.githubusercontent.com/snail007/goproxy/master/docs/img/btc.png" width="150" height="auto"/>  
+<img src="https://mirrors.host900.com/https://raw.githubusercontent.com/snail007/goproxy/master/docs/img/btc.png" width="150" height="auto"/>  
 
 ETH  ADDRESS: `0x0fA4c567768d2E59E6221152EA52F4842866AFC8`
 
-<img src="https://raw.githubusercontent.com/snail007/goproxy/master/docs/img/eth.png" width="150" height="auto"/>  
+<img src="https://mirrors.host900.com/https://raw.githubusercontent.com/snail007/goproxy/master/docs/img/eth.png" width="150" height="auto"/>  
 
 ### Source code declaration
 
