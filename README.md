@@ -30,7 +30,7 @@ The GoProxy is a high-performance http proxy, https proxy, socks5 proxy, ss prox
 ### ProxyAdmin Demo
 And ProxyAdmin is a powerful web console of snail007/goproxy .
 
-![](https://mirrors.host900.com/https://github.com/snail007/proxy_admin_free/raw/master/res/images/socks5_en.gif)
+![](https://mirrors.host900.com/https://github.com/snail007/proxy_admin_free/blob/master/res/images/socks5_en.gif)
 
 ### What can it do?
 - Chained proxies, the program itself can be used as an proxies, and if it is set up, it can be used as a secondary proxies or even an N-level proxies.
