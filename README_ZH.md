@@ -30,11 +30,11 @@
 
 比如`v10.4`的github下载链接是：
 
-`https://github.com/snail007/goproxy/releases/download/v10.4/proxy-windows-amd64.tar.gz`
+`https://github.com/snail007/goproxy/releases/download/v10.4/proxy-linux-amd64.tar.gz`
 
 那么国内下载地址就是：
 
-`https://mirrors.host900.com/https://github.com/snail007/goproxy/releases/download/v10.4/proxy-windows-amd64.tar.gz`
+`https://mirrors.host900.com/https://github.com/snail007/goproxy/releases/download/v10.4/proxy-linux-amd64.tar.gz`
 
 此地址也适用于wget，curl直接命令行下载。
 
