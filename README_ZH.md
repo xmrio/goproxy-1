@@ -1,5 +1,5 @@
 ## 赞助商广告
-<a href="https://www.huobi.li/zh-cn/topic/invited/?invite_code=qpi54">
+<a href="https://www.huobi.bi/zh-cn/topic/invited/?invite_code=qpi54">
 <img width="auto" height="100" src="/doc/images/zanzhu-1.png"/>
 </a>
 
