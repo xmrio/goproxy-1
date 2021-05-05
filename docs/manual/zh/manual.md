@@ -980,8 +980,11 @@ SOCKS5代理，支持CONNECT，UDP协议，不支持BIND，支持用户名密码
 
 ***那么需要加上`-g VPS公网IP`参数，SOCKS5代理的UDP功能才能正常工作。***  
 
+***socks5的udp功能默认关闭，可以通过--udp开启，默认是握手随机端口，可以通过固定一个端口提高性能，
+通过参数--udp-port 0设置，0代表随机选择一个空闲端口，也可以手动指定一个具体端口。***
+
 ### 5.1 普通SOCKS5代理  
-`proxy socks -t tcp -p "0.0.0.0:38080"`  
+`proxy socks -t tcp -p "0.0.0.0:38080" --udp-port 0 --udp`  
 
 -p参数支持的写法：
 
@@ -994,36 +997,36 @@ SOCKS5代理，支持CONNECT，UDP协议，不支持BIND，支持用户名密码
 ### 5.2.普通二级SOCKS5代理  
 ![5.2](https://cdn.jsdelivr.net/gh/snail007/goproxy@masterhttps://gitee.com/snail/proxy/raw/master/doc/images/socks-2.png)  
 使用本地端口8090，假设上级SOCKS5代理是`22.22.22.22:8080`  
-`proxy socks -t tcp -p "0.0.0.0:8090" -T tcp -P "22.22.22.22:8080" `  
+`proxy socks -t tcp -p "0.0.0.0:8090" -T tcp -P "22.22.22.22:8080"  --udp-port 0 --udp`  
 我们还可以指定网站域名的黑白名单文件，一行一个域名，匹配规则是最右匹配，比如:baidu.com，匹配的是*.*.baidu.com，黑名单的域名域名直接走上级代理，白名单的域名不走上级代理;如果域名即在黑名单又在白名单中，那么黑名单起作用。  
-`proxy socks -p "0.0.0.0:8090" -T tcp -P "22.22.22.22:8080"  -b blocked.txt -d direct.txt`  
+`proxy socks -p "0.0.0.0:8090" -T tcp -P "22.22.22.22:8080"  -b blocked.txt -d direct.txt  --udp-port 0 --udp`  
 
 ### 5.3.SOCKS二级代理(加密)  
 ![5.3](https://cdn.jsdelivr.net/gh/snail007/goproxy@masterhttps://gitee.com/snail/proxy/raw/master/doc/images/socks-tls-2.png)  
 一级SOCKS代理(VPS，IP:22.22.22.22)  
-`proxy socks -t tls -p ":38080" -C proxy.crt -K proxy.key`  
+`proxy socks -t tls -p ":38080" -C proxy.crt -K proxy.key  --udp-port 0 --udp`  
 
 二级SOCKS代理(本地Linux)  
-`proxy socks -t tcp -p ":8080" -T tls -P "22.22.22.22:38080" -C proxy.crt -K proxy.key`  
+`proxy socks -t tcp -p ":8080" -T tls -P "22.22.22.22:38080" -C proxy.crt -K proxy.key  --udp-port 0 --udp`  
 那么访问本地的8080端口就是访问VPS上面的代理端口38080。  
 
 二级SOCKS代理(本地windows)  
-`proxy.exe socks -t tcp -p ":8080" -T tls -P "22.22.22.22:38080" -C proxy.crt -K proxy.key`  
+`proxy.exe socks -t tcp -p ":8080" -T tls -P "22.22.22.22:38080" -C proxy.crt -K proxy.key  --udp-port 0 --udp`  
 然后设置你的windos系统中，需要通过代理上网的程序的代理为socks5模式，地址为：127.0.0.1，端口为：8080，程序即可通过加密通道通过vps上网。  
 
 ### 5.4.SOCKS三级代理(加密)  
 ![5.4](https://cdn.jsdelivr.net/gh/snail007/goproxy@masterhttps://gitee.com/snail/proxy/raw/master/doc/images/socks-tls-3.png)  
 一级SOCKS代理VPS_01，IP:22.22.22.22  
-`proxy socks -t tls -p ":38080" -C proxy.crt -K proxy.key`  
+`proxy socks -t tls -p ":38080" -C proxy.crt -K proxy.key  --udp-port 0 --udp`  
 二级SOCKS代理VPS_02，IP:33.33.33.33  
-`proxy socks -t tls -p ":28080" -T tls -P "22.22.22.22:38080" -C proxy.crt -K proxy.key`  
+`proxy socks -t tls -p ":28080" -T tls -P "22.22.22.22:38080" -C proxy.crt -K proxy.key  --udp-port 0 --udp`  
 三级SOCKS代理(本地)  
-`proxy socks -t tcp -p ":8080" -T tls -P "33.33.33.33:28080" -C proxy.crt -K proxy.key`  
+`proxy socks -t tcp -p ":8080" -T tls -P "33.33.33.33:28080" -C proxy.crt -K proxy.key  --udp-port 0 --udp`  
 那么访问本地的8080端口就是访问一级SOCKS代理上面的代理端口38080。  
 
 ### 5.5.SOCKS代理流量强制走上级SOCKS代理  
 默认情况下，proxy会智能判断一个网站域名是否无法访问，如果无法访问才走上级SOCKS代理.通过--always可以使全部SOCKS代理流量强制走上级SOCKS代理。  
-`proxy socks --always -t tls -p ":28080" -T tls -P "22.22.22.22:38080" -C proxy.crt -K proxy.key`  
+`proxy socks --always -t tls -p ":28080" -T tls -P "22.22.22.22:38080" -C proxy.crt -K proxy.key  --udp-port 0 --udp`  
 
 ### 5.6.SOCKS通过SSH中转  
 ![5.6](https://cdn.jsdelivr.net/gh/snail007/goproxy@masterhttps://gitee.com/snail/proxy/raw/master/doc/images/socks-ssh.png)  
@@ -1034,10 +1037,10 @@ SOCKS5代理，支持CONNECT，UDP协议，不支持BIND，支持用户名密码
 
 #### *5.6.1 ssh用户名和密码的方式*  
 本地SOCKS5代理28080端口，执行:  
-`proxy socks -T ssh -P "2.2.2.2:22" -u user -D demo -t tcp -p ":28080"`  
+`proxy socks -T ssh -P "2.2.2.2:22" -u user -D demo -t tcp -p ":28080"  --udp-port 0 --udp`  
 #### *5.6.2 ssh用户名和密钥的方式*  
 本地SOCKS5代理28080端口，执行:  
-`proxy socks -T ssh -P "2.2.2.2:22" -u user -S user.key -t tcp -p ":28080"`  
+`proxy socks -T ssh -P "2.2.2.2:22" -u user -S user.key -t tcp -p ":28080"  --udp-port 0 --udp`  
 
 那么访问本地的28080端口就是通过VPS访问目标地址。  
 
@@ -1235,6 +1238,9 @@ SOCKS5支持级联认证，-A可以设置上级认证信息。
 提示:
 
 当本地使用kcp协议时,需要用-g指定vps公网IP,socks5的UDP功能才能正常使用.这时-g是返回给客户端的UDP地址中的IP地址.
+
+ss的udp功能默认关闭，可以通过--ssudp开启。socks5的udp功能默认关闭，可以通过--udp开启，默认是握手随机端口，可以通过固定一个端口提高性能，
+通过参数--udp-port 0设置，0代表随机选择一个空闲端口，也可以手动指定一个具体端口。
 
 ### 6.2 HTTP(S)转HTTP(S)+SOCKS5+SS  
 转换后的SOCKS5或者SS代理不具备UDP功能。    
@@ -1472,11 +1478,9 @@ sps下级，限速100K
 如果是base64://开头，那么就认为后面的数据是base64编码的，会解码后使用。  
 
 ### 6.14 独立服务  
-sps功能不强制指定一个上级，当上级为空，sps本身即可完成完整的代理功能.如果指定了上级那么就和之前一样使用上级连接目标。  
-下面这个命令，就是一键开启http(s)\ss\socks服务。  
-`proxy sps -p :33080`  
-
-sps独立服务时，会额外开启一个本地socks5服务占用一个随机端口，现在增加参数`--self-port`可以在需要的时候手动指定这个端口，默认是0使用随机。  
+sps一个端口可完成完整功能的代理`http(s)\socks\ss`功能。  
+下面这个命令，就是一键开启http(s)\ss\socks服务,同时开启socks5的udp和ss的udp功能。  
+`proxy sps -p :33080 --ssudp --udp --udp-port 0`  
 
 ### 6.15 目标重定向  
 sps功能提供的http(s)\socks5\ss代理功能，客户端通过sps代理去连接指定的“目标”，这个“目标”一般是网站也可能是任意的tcp地址，  

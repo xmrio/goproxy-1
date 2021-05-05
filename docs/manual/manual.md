@@ -917,9 +917,12 @@ SOCKS5 proxy, support CONNECT, UDP protocol, does not support BIND, supports use
 
 *** Then you need to add the `-g VPS public network IP` parameter, the UDP function of the SOCKS5 proxy can work normally. ***  
 
+***The udp function of socks5 is turned off by default, and can be turned on by `--udp`. The default is a random port for handshake, and performance can be improved by fixing a port.
+Set by parameter `--udp-port 0`, `0` represents a free port is randomly selected, or you can manually specify a specific port. ***
+
 ### 5.1. Ordinary SOCKS5 Agent  
 `proxy socks -t tcp -p "0.0.0.0:38080"`  
-    
+
 Listen port argument `-p` can be:
 
 ```text
@@ -1161,6 +1164,9 @@ notice:
 
 When using the kcp protocol locally, you need to specify the vps public network IP with -g, and the UDP function of socks5 is fully used. At this time, -g is the IP address in the UDP address returned to the client.
 
+The udp function of ss is turned off by default and can be turned on by `--ssudp`. The udp function of socks5 is turned off by default and can be turned on by `--udp`, The default is a random port for handshake, and performance can be improved by fixing a port.
+Set by parameter `--udp-port 0`, `0` represents a free port is randomly selected, or you can manually specify a specific port.
+
 ### 6.2 HTTP(S) to HTTP(S)+SOCKS5+SS  
 Suppose there is already a normal http(s) proxy: 127.0.0.1:8080. Now we turn it into a common proxy that supports both http(s) and socks5 and ss. The converted local port is 18080, ss encryption: Aes-192-cfb, ss password: pass.  
 The command is as follows:  
@@ -1346,7 +1352,7 @@ For example:
 1. Disable the SOCKS5 proxy function to retain only the HTTP(S) proxy function, parameter: `--disable-socks`.  
 `proxy sps -T tcp -P 3.3.3.3:8888 -M -t tcp -p :8080 --disable-socks`  
 
-### 6.11 Speed ​​limit  
+### 6.11 Speed limit  
 
 Suppose there is a SOCKS5 upstream:  
 
@@ -1371,9 +1377,9 @@ By default, the -C, -K parameter is the path to the crt certificate and the key 
 If it is the beginning of base64://, then the latter data is considered to be base64 encoded and will be used after decoding.  
 
 ### 6.14 Independent Service  
-The sps function does not force a upstream to be specified. When the upstream is empty, the sps itself can complete the full proxy function. If the upstream is specified, the upstream connection target is used as before.  
-The following command is to open the http(s)\ss\socks service with one click.  
-`proxy sps -p :33080`  
+A sps port can complete the full-featured proxy `http\socks\ss` function.  
+The following command is to open the http(s)\ss\socks service with one click, and enable the udp of socks5 and the udp of ss at the same time.  
+`proxy sps -p: 33080 --ssudp --udp --udp-port 0`  
 
 ### 6.15 Target Redirection  
 The https(s)\socks5\ss proxy function provided by the sps function, the client connects to the specified "target" through the sps proxy. This "target" is generally a website or an arbitrary tcp address.  
